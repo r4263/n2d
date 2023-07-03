@@ -1,0 +1,29 @@
+{
+  "content": "New tunnel(s) detected!",
+  "embeds": [
+    {
+      "title": "Tunnel #1",
+      "description": "Tunnel Name: $name\nTunnel Address: $addr",
+      "url": "http://{tunneladdr}",
+      "color": 7280917,
+      "author": {
+        "name": "n2d - Python Agent@(username(c_name))",
+        "icon_url": "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png"
+      },
+      "timestamp": "2023-07-03T12:11:00.000Z"
+    },
+    {
+      "title": "Tunnel #2",
+      "description": "Tunnel Name: $name\nTunnel Address: $addr",
+      "url": "http://{tunneladdr}",
+      "color": 7280917,
+      "author": {
+        "name": "n2d - Python Agent@(username(c_name))",
+        "icon_url": "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png"
+      },
+      "timestamp": "2023-07-03T12:11:00.000Z"
+    }
+  ],
+  "username": "n2d",
+  "attachments": []
+}

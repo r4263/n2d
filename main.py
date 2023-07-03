@@ -15,46 +15,22 @@ response_json = response.json()
 
 tunnelcount = 1
 
-for tunnel in response_json["tunnels"]:
+if response_json["tunnels"].count != 0:
+  for tunnel in response_json["tunnels"]:
 
-    tunnelname = tunnel["name"] if tunnel["name"] != "command_line" else "No name(ngrok is being executed by command line)"
-    publicurl = tunnel["public_url"]
-    publicurl_f = (publicurl.split("://",1))[1]
-    ct = str(datetime.datetime.now())
+      tunnelname = tunnel["name"] if tunnel["name"] != "command_line" else "No name(ngrok is being executed by command line)"
+      publicurl = tunnel["public_url"]
+      publicurl_f = (publicurl.split("://",1))[1]
+      ct = str(datetime.datetime.now())
 
-    webhookcontent["embeds"] += [
-        {
-       'title': 'Tunnel #'+str(tunnelcount),
-       'url': publicurl,
-       'color': '1679001',
-       'fields': [
-         {
-           'name': 'Tunnel name',
-           'value': tunnelname
-         },
-         {
-           'name': 'Tunnel URL',
-           'value': publicurl_f
-         }
-       ],
-       'author': {
-         'name': 'Python Agent',
-         'icon_url': 'https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png'
-       },
-       'footer': {
-         'text': 'Timestamp'
-       },
-       'timestamp': ct
-        }
-      ]
+      tunnelcount += 1
 
-    tunnelcount += 1
+print(json.dumps(webhookcontent))
+# result = requests.post(webhook, data=json.dumps(webhookcontent), headers={'Content-type':'application-json'})
 
-result = requests.post(webhook, data=json.dumps(webhookcontent), headers={'Content-type':'application-json'})
-
-try:
-  result.raise_for_status()
-except requests.exceptions.HTTPError as err:
-  print(err)
-else:
-  print("Payload delivered successfully, code {}.".format(result.status_code))
+# try:
+#   result.raise_for_status()
+# except requests.exceptions.HTTPError as err:
+#   print(err)
+# else:
+#   print("Payload delivered successfully, code {}.".format(result.status_code))
