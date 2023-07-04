@@ -23,6 +23,10 @@ if response_json["tunnels"].count != 0:
       publicurl_f = (publicurl.split("://",1))[1]
       ct = str(datetime.datetime.now())
 
+      webhookcontent["embeds"] +={
+      }
+        
+
       tunnelcount += 1
 
 print(json.dumps(webhookcontent))

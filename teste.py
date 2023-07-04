@@ -1,5 +1,7 @@
 import requests
 import json
+import socket
+import getpass
 
 with open('./src/config.json') as file:
     data = json.load(file)
@@ -7,16 +9,18 @@ with open('./src/config.json') as file:
 with open('./src/message.json') as file:
     webhook_message = json.load(file)
 
+computer_name = socket.gethostname()
+username = getpass.getuser()
 webhook = data["webhook"]
 apiaddr = data["apiaddr"]
-
-print(webhook)
-print(apiaddr)
-
 embeds = webhook_message["embeds"]
-# webhook_header = webhook_message.pop(embeds)
+del webhook_message["embeds"]
 
-print(embeds)
+# print(embeds)
+# print(webhook_message + embeds)
+
+
+
 
 
 
